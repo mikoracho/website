@@ -467,27 +467,30 @@ nav {
 
 .nav-links a:hover { color: var(--highlight); }
 
-/* This part aligns them in 3 columns */
+/* PHOTO DUMP ALBUM STYLES */
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns of equal width */
-    gap: 15px; /* Space between photos */
-    max-width: 1000px;
-    margin: 0 auto; /* Centers the whole grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns across */
+    gap: 15px;
+    margin-top: 30px;
 }
 
-/* This part makes them all the same size */
 .photo-card {
-    width: 100%;
-    aspect-ratio: 1 / 1; /* FORCES a square shape (Width = Height) */
-    overflow: hidden; /* Hides parts of the image that don't fit the square */
-    border-radius: 12px;
-    background-color: #f0f0f0;
+    aspect-ratio: 1 / 1; /* Makes every photo a square */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .photo-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* IMPORTANT: This crops the image so it fits the square without stretching or squishing it */
-    display: block;
+    object-fit: cover; /* This stops the images from stretching */
+}
+
+/* Mobile: Change to 2 columns on small screens */
+@media (max-width: 700px) {
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
