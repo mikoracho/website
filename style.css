@@ -467,30 +467,82 @@ nav {
 
 .nav-links a:hover { color: var(--highlight); }
 
-/* PHOTO DUMP ALBUM STYLES */
+/* --- THE 3x3 GRID --- */
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns across */
-    gap: 15px;
-    margin-top: 30px;
+    grid-template-columns: repeat(3, 1fr); /* FORCES 3 COLUMNS */
+    gap: 20px; /* Space between photos */
+    max-width: 1100px;
+    margin: 40px auto;
 }
 
+/* --- THE SQUARE CARDS --- */
 .photo-card {
-    aspect-ratio: 1 / 1; /* Makes every photo a square */
-    border-radius: 8px;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* FORCES EVERY PHOTO TO BE A PERFECT SQUARE */
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: var(--primary);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .photo-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This stops the images from stretching */
+    object-fit: cover; /* CROPS PHOTO TO FIT SQUARE WITHOUT STRETCHING */
+    transition: transform 0.5s ease;
 }
 
-/* Mobile: Change to 2 columns on small screens */
-@media (max-width: 700px) {
+/* --- HOVER EFFECTS --- */
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(233, 69, 96, 0.7); /* Your highlight color with transparency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+}
+
+.photo-overlay span {
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    border: 2px solid white;
+    padding: 8px 16px;
+}
+
+/* On Hover: Lift, Zoom, and Fade-in Overlay */
+.photo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.photo-card:hover img {
+    transform: scale(1.1); /* Zoom effect */
+}
+
+.photo-card:hover .photo-overlay {
+    opacity: 1; /* Show the overlay */
+}
+
+/* --- RESPONSIVE FIX --- */
+@media (max-width: 800px) {
     .photo-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2x2 on tablets */
+    }
+}
+
+@media (max-width: 500px) {
+    .photo-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
     }
 }
