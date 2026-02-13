@@ -605,14 +605,26 @@ nav {
     opacity:1;
 }
 
-/* IMAGE BOX */
 .img-box{
-    width:95px;
-    height:95px;
-    border-radius:14px;
-    background:linear-gradient(135deg,#2a3f68,#162b4f);
-    box-shadow:0 10px 20px rgba(0,0,0,0.4);
+width:110px;
+height:110px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#2a3f68,#162b4f);
+border-radius:14px;
+overflow:hidden;
 }
+
+.img-box img{
+max-width:100%;
+max-height:100%;
+width:auto;
+height:auto;
+object-fit:contain;
+display:block;
+}
+
 
 /* MUSIC INFO */
 .music-info{
