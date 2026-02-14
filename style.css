@@ -547,48 +547,86 @@ nav {
     }
 }
 
-/* ==========================
-   CLEAN MODERN MUSIC DESIGN
-==========================*/
+/* ===============================
+   PREMIUM MUSIC UI (CSS ONLY)
+================================*/
 
+/* HERO TITLE */
+.music-hero{
+text-align:center;
+margin:120px auto 60px;
+}
+
+.music-mini{
+letter-spacing:3px;
+color:var(--highlight);
+font-size:0.8rem;
+margin-bottom:10px;
+}
+
+.music-title{
+font-family:'Playfair Display',serif;
+font-size:3.5rem;
+margin-bottom:10px;
+position:relative;
+display:inline-block;
+}
+
+.music-title::after{
+content:'';
+width:60px;
+height:4px;
+background:var(--highlight);
+display:block;
+margin:10px auto;
+border-radius:2px;
+}
+
+.music-sub{
+color:var(--text-secondary);
+font-family:'Work Sans',sans-serif;
+}
+
+/* SECTION */
 .music-section{
-max-width:900px;
-margin:160px auto 100px;
-padding:0 20px;
+max-width:950px;
+margin:auto;
+padding:0 20px 80px;
 }
 
 /* CARD */
 .music-card{
 display:flex;
+gap:22px;
 align-items:center;
-gap:20px;
 padding:22px;
-margin-bottom:22px;
+margin-bottom:25px;
 
-background:rgba(255,255,255,0.05);
-border-radius:18px;
-border-left:5px solid #ff4d6d;
+background:rgba(255,255,255,0.04);
+backdrop-filter:blur(10px);
+
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.08);
 
 transition:0.35s;
-box-shadow:0 12px 25px rgba(0,0,0,0.4);
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
 }
 
-/* SIMPLE HOVER */
 .music-card:hover{
-transform:translateY(-6px);
-background:rgba(255,255,255,0.08);
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 25px 60px rgba(0,0,0,0.35);
 }
 
 /* IMAGE */
 .img-box{
-width:105px;
-height:105px;
-border-radius:14px;
+width:120px;
+height:120px;
+border-radius:18px;
 overflow:hidden;
-background:linear-gradient(135deg,#243f72,#162d55);
 display:flex;
 align-items:center;
 justify-content:center;
+background:linear-gradient(135deg,var(--primary),var(--accent));
 }
 
 .img-box img{
@@ -600,29 +638,15 @@ object-fit:contain;
 /* INFO */
 .music-info{
 flex:1;
-display:flex;
-justify-content:space-between;
-align-items:center;
 }
 
 .music-info h2{
 font-family:'Playfair Display',serif;
-font-size:1.3rem;
+margin-bottom:10px;
 }
 
-/* BUTTON */
-.music-info button{
-padding:10px 20px;
-border:none;
+/* AUDIO PLAYER STYLE */
+audio{
+width:100%;
 border-radius:30px;
-background:#ff4d6d;
-color:white;
-font-weight:500;
-cursor:pointer;
-transition:0.3s;
-}
-
-.music-info button:hover{
-background:#ff3355;
-transform:scale(1.08);
 }
