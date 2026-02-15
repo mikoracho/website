@@ -547,144 +547,106 @@ nav {
     }
 }
 
-/* ========================= */
-/* MUSIC HEADER */
-/* ========================= */
+/* ===============================
+   PREMIUM MUSIC UI (CSS ONLY)
+================================*/
+
+/* HERO TITLE */
+.music-mini,
+.hero-subtitle{
+    font-family: 'Work Sans', sans-serif;
+}
 
 .section-header{
     text-align:center;
     margin:40px auto 60px;
 }
 
-.hero-subtitle{
-    font-family:'Work Sans', sans-serif;
-    font-size:1rem;
-    font-weight:500;
-    letter-spacing:1px;
-    color:var(--highlight);
-    margin-bottom:10px;
+.music-sub{
+    font-family: 'Work Sans', sans-serif;
+    font-size:1.2rem;
+    color:var(--text-secondary);
+    margin-top:15px;
 }
 
-.section-title{
-    font-family:'Playfair Display', serif;
-    font-size:3.5rem;
-    font-weight:700;
-    color:var(--primary);
-    margin-bottom:15px;
+
+.music-title::after{
+content:'';
+width:60px;
+height:4px;
+background:var(--highlight);
+display:block;
+margin:12px auto;
+border-radius:2px;
 }
 
 .music-sub{
-    font-family:'Work Sans', sans-serif;
-    font-size:1.1rem;
-    color:var(--text-secondary);
+font-size:1.2rem;
+color:var(--text-secondary);
 }
 
 
-/* ========================= */
-/* MUSIC SECTION */
-/* ========================= */
-
+/* SECTION */
 .music-section{
-    width:90%;
-    max-width:1100px;
-    margin:0 auto 80px;
-    display:flex;
-    flex-direction:column;
-    gap:30px;
+max-width:950px;
+margin:auto;
+padding:0 20px 80px;
 }
 
-
-/* ========================= */
-/* MUSIC CARD */
-/* ========================= */
-
+/* CARD */
 .music-card{
-    display:flex;
-    align-items:center;
-    background:linear-gradient(135deg, #ffffff, #f7f8fc);
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-    transition:all 0.3s ease;
+display:flex;
+gap:22px;
+align-items:center;
+padding:22px;
+margin-bottom:25px;
+
+background:rgba(255,255,255,0.04);
+backdrop-filter:blur(10px);
+
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.08);
+
+transition:0.35s;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
 }
 
 .music-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 40px rgba(0,0,0,0.12);
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 25px 60px rgba(0,0,0,0.35);
 }
 
-
-/* ========================= */
-/* IMAGE BOX */
-/* ========================= */
-
+/* IMAGE */
 .img-box{
-    width:220px;
-    height:220px;
-    overflow:hidden;
-    flex-shrink:0;
+width:120px;
+height:120px;
+border-radius:18px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,var(--primary),var(--accent));
 }
 
 .img-box img{
-    width:100%;
-    height:100%;
-    object-fit:contain; /* kita buong image */
-    background:#f0f0f0;
+max-width:100%;
+max-height:100%;
+object-fit:contain;
 }
 
-
-/* ========================= */
-/* MUSIC INFO */
-/* ========================= */
-
+/* INFO */
 .music-info{
-    padding:25px 35px;
-    flex:1;
+flex:1;
 }
 
 .music-info h2{
-    font-family:'Playfair Display', serif;
-    font-size:1.6rem;
-    margin-bottom:15px;
-    color:var(--primary);
+font-family:'Playfair Display',serif;
+margin-bottom:10px;
 }
 
-
-/* ========================= */
-/* AUDIO PLAYER */
-/* ========================= */
-
+/* AUDIO PLAYER STYLE */
 audio{
-    width:100%;
-    max-width:350px;
+width:100%;
+border-radius:30px;
 }
 
-
-/* ========================= */
-/* RESPONSIVE */
-/* ========================= */
-
-@media(max-width:768px){
-
-    .music-card{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .img-box{
-        width:100%;
-        height:250px;
-    }
-
-    .music-info{
-        padding:20px;
-    }
-
-    audio{
-        max-width:100%;
-    }
-
-    .section-title{
-        font-size:2.5rem;
-    }
-}
