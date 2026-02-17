@@ -759,6 +759,11 @@ nav {
     margin-bottom: 5px;
 }
 
+.music-genre .song-meta h3 {
+    font-family: var(--font-primary) !important;
+    font-weight: var(--weight-semibold);
+}
+
 .album-text {
     color: var(--highlight);
     font-weight: var(--weight-bold);
