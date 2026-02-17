@@ -12,25 +12,53 @@
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
     --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+
+    /* --- FONT VARIABLES --- */
+    --font-primary: 'Work Sans', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+    
+    /* --- FONT WEIGHTS --- */
+    --weight-light: 300;
+    --weight-normal: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
 }
 
-/* --- GLOBAL RESET --- */
+/* --- GLOBAL RESET & FONT ENFORCEMENT --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Force inheritance for all elements to prevent page-specific overrides */
+    font-family: inherit;
 }
 
 html {
     scroll-behavior: smooth;
+    /* Define base font at the root level */
+    font-family: var(--font-primary);
 }
 
 body {
-    font-family: 'Work Sans', sans-serif;
+    font-family: var(--font-primary);
+    font-weight: var(--weight-normal);
     color: var(--text-primary);
     background: var(--bg-light);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+/* Global Heading Font & Weight Enforcement */
+h1, h2, h3, h4, h5, h6, 
+.section-title, .hero-title, .logo, .sidebar-logo, .main-title, .detail-title, .card-desc h2 {
+    font-family: var(--font-heading) !important;
+    font-weight: var(--weight-bold) !important;
+}
+
+/* Ensure form elements and buttons also use the consistent primary font */
+button, input, select, textarea, .cta-button {
+    font-family: var(--font-primary);
 }
 
 ::selection {
@@ -59,9 +87,7 @@ nav {
 }
 
 .logo {
-    font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
-    font-weight: 600;
     color: var(--primary);
     letter-spacing: -0.5px;
     transition: transform 0.3s ease;
@@ -82,7 +108,7 @@ nav {
 .nav-links a {
     text-decoration: none;
     color: var(--text-primary);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     font-size: 0.9rem;
     position: relative;
     padding: 8px 0;
@@ -174,7 +200,7 @@ nav {
 
 .hero-subtitle {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     text-transform: uppercase;
     letter-spacing: 3px;
     color: var(--highlight);
@@ -184,9 +210,7 @@ nav {
 }
 
 .hero-title {
-    font-family: 'Playfair Display', serif;
     font-size: 4rem;
-    font-weight: 700;
     line-height: 1.1;
     margin-bottom: 30px;
     animation: slideUp 0.8s ease 0.4s forwards;
@@ -211,7 +235,7 @@ nav {
     color: var(--text-light);
     text-decoration: none;
     border-radius: 50px;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     font-size: 1rem;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 8px 24px rgba(233, 69, 96, 0.3);
@@ -232,7 +256,7 @@ nav {
     margin-bottom: 30px;
     color: var(--text-secondary);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     font-size: 0.8rem;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -264,7 +288,7 @@ nav {
 .badge {
     font-size: 0.8rem;
     color: var(--highlight);
-    font-weight: 700;
+    font-weight: var(--weight-bold);
     letter-spacing: 2px;
 }
 
@@ -281,9 +305,7 @@ nav {
 }
 
 .section-title {
-    font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    font-weight: 700;
     color: var(--primary);
     margin-bottom: 20px;
     position: relative;
@@ -430,7 +452,7 @@ nav {
 
 .photo-overlay span {
     color: white;
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     font-size: 1rem;
     letter-spacing: 2px;
     border: 2px solid white;
@@ -470,7 +492,6 @@ nav {
 }
 
 .sidebar-logo {
-    font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     margin-bottom: 40px;
 }
@@ -489,7 +510,6 @@ nav {
     transition: 0.3s;
 }
 
-.sidebar-links a.active,
 .sidebar-links a:hover {
     background: var(--highlight);
     color: white;
@@ -498,7 +518,6 @@ nav {
 .nav-label {
     font-size: 0.7rem;
     letter-spacing: 2px;
-    margin: 30px 0 15px 15px;
     opacity: 0.5;
 }
 
@@ -527,7 +546,6 @@ nav {
 }
 
 .main-title {
-    font-family: 'Playfair Display', serif;
     font-size: 5rem;
     color: var(--primary);
     text-transform: uppercase;
@@ -540,7 +558,6 @@ nav {
 }
 
 .subtitle {
-    font-family: 'Work Sans', sans-serif;
     font-size: 0.8rem;
     letter-spacing: 6px;
     color: var(--text-secondary);
@@ -589,7 +606,6 @@ nav {
 }
 
 .card-desc h2 {
-    font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     color: var(--primary);
     margin-bottom: 5px;
@@ -597,7 +613,6 @@ nav {
 }
 
 .card-desc p {
-    font-family: 'Work Sans', sans-serif;
     font-size: 0.7rem;
     letter-spacing: 2px;
     color: var(--text-secondary);
@@ -628,7 +643,6 @@ nav {
 }
 
 .detail-title {
-    font-family: 'Playfair Display', serif;
     font-size: 5rem;
     margin: 0;
     line-height: 1;
@@ -638,7 +652,7 @@ nav {
     color: var(--highlight);
     text-transform: uppercase;
     letter-spacing: 4px;
-    font-weight: bold;
+    font-weight: var(--weight-bold);
     margin-bottom: 10px;
 }
 
@@ -692,7 +706,7 @@ nav {
 
 .album-text {
     color: var(--highlight);
-    font-weight: bold;
+    font-weight: var(--weight-bold);
     font-size: 0.9rem;
     display: block;
     margin-bottom: 15px;
