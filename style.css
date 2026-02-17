@@ -1,3 +1,4 @@
+/* --- ROOT VARIABLES --- */
 :root {
     --primary: #1a1a2e;
     --secondary: #16213e;
@@ -8,15 +9,20 @@
     --text-light: #ffffff;
     --bg-light: #f8f9fa;
     --bg-white: #ffffff;
-    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-    --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
-    --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
 }
 
+/* --- GLOBAL RESET --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -27,6 +33,12 @@ body {
     overflow-x: hidden;
 }
 
+::selection {
+    background: var(--highlight);
+    color: var(--text-light);
+}
+
+/* --- LAYOUT: HEADER & NAVIGATION --- */
 header {
     background: var(--bg-white);
     box-shadow: var(--shadow-sm);
@@ -53,6 +65,7 @@ nav {
     color: var(--primary);
     letter-spacing: -0.5px;
     transition: transform 0.3s ease;
+    text-decoration: none;
 }
 
 .logo:hover {
@@ -62,7 +75,7 @@ nav {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 40px;
+    gap: 20px;
     align-items: center;
 }
 
@@ -70,7 +83,7 @@ nav {
     text-decoration: none;
     color: var(--text-primary);
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     position: relative;
     padding: 8px 0;
     transition: color 0.3s ease;
@@ -95,6 +108,7 @@ nav {
     width: 100%;
 }
 
+/* --- SECTION: HERO --- */
 .hero-section {
     min-height: calc(100vh - 80px);
     display: flex;
@@ -155,18 +169,7 @@ nav {
 
 .hero-image:hover {
     transform: translateY(-10px) rotate(2deg);
-    box-shadow: 0 15px 45px rgba(0,0,0,0.3);
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
@@ -193,24 +196,14 @@ nav {
 .hero-description {
     font-size: 1.25rem;
     line-height: 1.8;
-    color: rgba(255,255,255,0.9);
+    color: rgba(255, 255, 255, 0.9);
     max-width: 600px;
     margin-bottom: 40px;
     animation: slideUp 0.8s ease 0.6s forwards;
     opacity: 0;
 }
 
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
+/* --- COMPONENTS: BUTTONS & CARDS --- */
 .cta-button {
     display: inline-block;
     padding: 16px 40px;
@@ -233,6 +226,49 @@ nav {
     box-shadow: 0 12px 32px rgba(233, 69, 96, 0.5);
 }
 
+/* Standardized Back/Home Button */
+.back-button, .back-nav {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover, .back-nav:hover {
+    color: var(--highlight);
+    transform: translateX(-8px);
+}
+
+/* Special version for music detail header */
+.detail-header .back-button {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    width: fit-content;
+    letter-spacing: 2px;
+}
+
+.detail-header .back-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    transform: translateX(-8px);
+}
+
+.badge {
+    font-size: 0.8rem;
+    color: var(--highlight);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* --- SECTION: GENERAL CONTENT --- */
 .content-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -297,6 +333,7 @@ nav {
     height: 100%;
 }
 
+/* --- SECTION: TIMELINE --- */
 .timeline-item {
     position: relative;
     margin-bottom: 40px;
@@ -327,25 +364,7 @@ nav {
     background: var(--primary);
 }
 
-.back-button {
-    display: inline-block;
-    margin-bottom: 30px;
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.back-button:hover {
-    color: var(--highlight);
-    transform: translateX(-8px);
-}
-
-.contact-card-inner {
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
+/* --- SECTION: CONTACT --- */
 .contact-info-box {
     background: var(--bg-light);
     padding: 40px;
@@ -354,6 +373,7 @@ nav {
     max-width: 500px;
     transition: all 0.3s ease;
     cursor: pointer;
+    text-align: center;
 }
 
 .contact-info-box:hover {
@@ -366,121 +386,19 @@ nav {
     color: var(--highlight);
 }
 
-footer {
-    background: var(--primary);
-    color: var(--text-light);
-    text-align: center;
-    padding: 60px 40px;
-}
-
-@media (max-width: 992px) {
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-content {
-        text-align: center;
-    }
-    .hero-description {
-        margin: 0 auto 40px;
-    }
-    .hero-title {
-        font-size: 3.5rem;
-    }
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-::selection {
-    background: var(--highlight);
-    color: var(--text-light);
-}
-
-:root {
-    --primary: #1a1a2e;
-    --secondary: #16213e;
-    --accent: #0f3460;
-    --highlight: #e94560;
-    --text-primary: #1a1a2e;
-    --text-secondary: #6c757d;
-    --text-light: #ffffff;
-    --bg-light: #f8f9fa;
-    --bg-white: #ffffff;
-    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-    --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
-    --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    font-family: 'Work Sans', sans-serif;
-    color: var(--text-primary);
-    background: var(--bg-light);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-header {
-    background: var(--bg-white);
-    box-shadow: var(--shadow-sm);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-}
-
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--primary);
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-    align-items: center;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-primary);
-    font-weight: 500;
-    font-size: 0.9rem;
-    position: relative;
-    padding: 8px 0;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover { color: var(--highlight); }
-
-/* --- THE 3x3 GRID --- */
+/* --- MODULE: PHOTO GRID --- */
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* FORCES 3 COLUMNS */
-    gap: 20px; /* Space between photos */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     max-width: 1100px;
     margin: 40px auto;
 }
 
-/* --- THE SQUARE CARDS --- */
 .photo-card {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1; /* FORCES EVERY PHOTO TO BE A PERFECT SQUARE */
+    aspect-ratio: 1 / 1;
     border-radius: 12px;
     overflow: hidden;
     background: var(--primary);
@@ -492,22 +410,21 @@ nav {
 .photo-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* CROPS PHOTO TO FIT SQUARE WITHOUT STRETCHING */
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
-/* --- HOVER EFFECTS --- */
 .photo-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(233, 69, 96, 0.7); /* Your highlight color with transparency */
+    background: rgba(233, 69, 96, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0; /* Hidden by default */
+    opacity: 0;
     transition: opacity 0.3s ease;
 }
 
@@ -520,51 +437,36 @@ nav {
     padding: 8px 16px;
 }
 
-/* On Hover: Lift, Zoom, and Fade-in Overlay */
 .photo-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
 }
 
 .photo-card:hover img {
-    transform: scale(1.1); /* Zoom effect */
+    transform: scale(1.1);
 }
 
 .photo-card:hover .photo-overlay {
-    opacity: 1; /* Show the overlay */
+    opacity: 1;
 }
 
-/* --- RESPONSIVE FIX --- */
-@media (max-width: 800px) {
-    .photo-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2x2 on tablets */
-    }
-}
-
-@media (max-width: 500px) {
-    .photo-grid {
-        grid-template-columns: 1fr; /* 1 column on mobile */
-    }
-}
-
-/* DASHBOARD LAYOUT */
+/* --- MODULE: DASHBOARD --- */
 .dashboard-wrapper {
     display: grid;
-    grid-template-columns: 240px 1fr; /* Sidebar at Main Content */
-    height: calc(100vh - 80px); /* Height minus the header */
+    grid-template-columns: 240px 1fr;
+    height: calc(100vh - 80px);
     background: var(--bg-light);
     overflow: hidden;
     position: relative;
 }
 
-/* SIDEBAR STYLE */
 .sidebar-panel {
-    background: var(--primary); /* Deep Navy mo */
+    background: var(--primary);
     color: var(--text-light);
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid rgba(255,255,255,0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .sidebar-logo {
@@ -573,19 +475,22 @@ nav {
     margin-bottom: 40px;
 }
 
-.sidebar-logo span { color: var(--highlight); }
+.sidebar-logo span {
+    color: var(--highlight);
+}
 
 .sidebar-links a {
     display: block;
     padding: 12px 15px;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     border-radius: 8px;
     margin-bottom: 8px;
     transition: 0.3s;
 }
 
-.sidebar-links a.active, .sidebar-links a:hover {
+.sidebar-links a.active,
+.sidebar-links a:hover {
     background: var(--highlight);
     color: white;
 }
@@ -597,11 +502,10 @@ nav {
     opacity: 0.5;
 }
 
-/* MAIN CONTENT PANEL */
 .main-content-panel {
     padding: 30px;
     overflow-y: auto;
-    padding-bottom: 120px; /* Space para sa player bar */
+    padding-bottom: 120px;
 }
 
 .music-hero-card {
@@ -614,98 +518,102 @@ nav {
     border-bottom: 5px solid var(--highlight);
 }
 
-.badge {
-    font-size: 0.8rem;
-    color: var(--highlight);
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-/* Portal Layout */
-.portal-container {
-    padding: 60px 20px;
-    background: var(--bg-light); /* Off-white base */
-    min-height: 100vh;
+/* --- MODULE: MUSIC PORTAL --- */
+.portal-wrapper {
+    background-color: #f9f7f2;
+    padding: 80px 20px;
     text-align: center;
+    min-height: 100vh;
 }
 
-.portal-title {
+.main-title {
     font-family: 'Playfair Display', serif;
-    font-size: 4.5rem;
-    color: var(--primary); /* Yung Navy Blue mo */
+    font-size: 5rem;
+    color: var(--primary);
     text-transform: uppercase;
-    margin-bottom: 0;
+    margin-bottom: 5px;
+    letter-spacing: -2px;
 }
 
-.portal-subtitle {
-    font-size: 0.9rem;
-    letter-spacing: 5px;
-    color: var(--highlight); /* Yung Pink mo */
-    margin-bottom: 50px;
+.main-title span {
+    color: var(--highlight);
 }
 
-/* 3-Column Grid */
-.genre-grid {
+.subtitle {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 6px;
+    color: var(--text-secondary);
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+
+.portal-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1200px;
+    gap: 40px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-/* Polaroid Card Style */
-.genre-card {
-    background: var(--bg-white);
-    padding: 15px;
-    border: 1px solid #ddd;
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.3s ease;
+.category-card {
+    background: white;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: block;
 }
 
-.genre-card:hover {
-    transform: translateY(-10px);
+.category-card:hover {
+    transform: translateY(-15px);
     box-shadow: var(--shadow-lg);
+    border-color: var(--highlight);
 }
 
-.photo-frame {
+.image-placeholder {
     width: 100%;
-    aspect-ratio: 1/1.2;
+    aspect-ratio: 1 / 1.2;
+    background: #f0f0f0;
+    margin-bottom: 25px;
+    display: block;
     overflow: hidden;
-    margin-bottom: 20px;
-    border: 1px solid #eee;
 }
 
-.photo-frame img {
+.image-placeholder img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
-.card-info h2 {
+.card-desc h2 {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     color: var(--primary);
     margin-bottom: 5px;
+    text-transform: uppercase;
 }
 
-.card-info p {
-    font-size: 0.75rem;
+.card-desc p {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.7rem;
     letter-spacing: 2px;
     color: var(--text-secondary);
-    margin-bottom: 15px;
+    text-transform: uppercase;
 }
 
-/* --- GENRE DETAIL WRAPPER (MAIN CONTAINER) --- */
+/* --- MODULE: GENRE DETAIL --- */
 .genre-detail-wrapper {
-    background: #f0f2f5; /* Light grey background parang sa image */
+    background: #f0f2f5;
     min-height: 100vh;
     padding-bottom: 80px;
 }
 
-/* --- BANNER HEADER (Yung may Artist Image) --- */
 .detail-header {
-    background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.9)), 
-                url('images/banner-bg.jpg'); /* Palitan mo ng image path mo */
+    background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.9)),
+        url('images/banner-bg.jpg');
     background-size: cover;
     background-position: center;
     height: 300px;
@@ -714,8 +622,8 @@ nav {
     justify-content: center;
     padding: 0 10%;
     color: white;
-    border-radius: 0 0 30px 30px; /* Rounded corners sa baba */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     margin-bottom: 40px;
 }
 
@@ -734,7 +642,6 @@ nav {
     margin-bottom: 10px;
 }
 
-/* --- SONGS GRID --- */
 .songs-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -744,14 +651,13 @@ nav {
     padding: 20px;
 }
 
-/* --- SONG ITEM (CARD) --- */
 .song-item {
     background: white;
     padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    border-right: 8px solid var(--highlight); /* Pink stripe sa gilid parang sa pic */
+    border-right: 8px solid var(--highlight);
     position: relative;
     overflow: hidden;
 }
@@ -761,16 +667,15 @@ nav {
     box-shadow: 0 15px 35px rgba(233, 69, 96, 0.15);
 }
 
-/* --- SONG FRAME (IMAGE BOX) --- */
 .song-frame {
     width: 100%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1 / 1;
     border-radius: 12px;
     overflow: hidden;
     margin-bottom: 20px;
     background: #eee;
-    border: 5px solid white; /* White border sa loob */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 5px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .song-frame img {
@@ -779,7 +684,6 @@ nav {
     object-fit: cover;
 }
 
-/* --- TEXT & PLAYER --- */
 .song-meta h3 {
     font-size: 1.4rem;
     color: var(--primary);
@@ -794,149 +698,72 @@ nav {
     margin-bottom: 15px;
 }
 
-
-/* Back Button inside Header */
-.back-button {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px 20px;
-    border-radius: 50px;
-    backdrop-filter: blur(5px);
-    width: fit-content;
-    margin-bottom: 20px;
-}
-
-/* --- MUSIC PORTAL (MAIN PAGE) --- */
-
-.portal-wrapper {
-    background-color: #f9f7f2; /* Creamy background parang sa tropa mo */
-    padding: 80px 20px;
+/* --- FOOTER --- */
+footer {
+    background: var(--primary);
+    color: var(--text-light);
     text-align: center;
-    min-height: 100vh;
+    padding: 60px 40px;
 }
 
-.portal-wrapper .back-nav {
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-weight: 600;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    display: inline-block;
-    margin-bottom: 30px;
-    transition: 0.3s;
+/* --- ANIMATIONS --- */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.portal-wrapper .back-nav:hover {
-    color: var(--highlight);
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.main-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    color: var(--primary);
-    text-transform: uppercase;
-    margin-bottom: 5px;
-    letter-spacing: -2px;
+/* --- MEDIA QUERIES --- */
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-description {
+        margin: 0 auto 40px;
+    }
+    .hero-title {
+        font-size: 3.5rem;
+    }
 }
 
-.main-title span {
-    color: var(--highlight); /* Yung Pink na 'BEATS' */
-}
-
-.subtitle {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 6px;
-    color: var(--text-secondary);
-    margin-bottom: 60px;
-    text-transform: uppercase;
-}
-
-/* --- THE 3-COLUMN GRID --- */
-.portal-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-/* --- CATEGORY CARDS (HIPHOP, POP, R&B) --- */
-.category-card {
-    background: white;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    text-decoration: none; /* Tanggalin ang blue underline ng link */
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    display: block;
-}
-
-.category-card:hover {
-    transform: translateY(-15px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--highlight);
-}
-
-.image-placeholder {
-    width: 100%;
-    aspect-ratio: 1 / 1.2; /* Portrait ratio parang sa picture */
-    background: #f0f0f0;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #f0f0f0;
-    overflow: hidden;
-}
-
-.image-placeholder span {
-    color: #ccc;
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-}
-
-/* Text inside the Card */
-.card-desc h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: var(--primary);
-    margin-bottom: 5px;
-    text-transform: uppercase;
-}
-
-.card-desc p {
-    font-family: 'Work Sans', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-}
-
-/* Responsive Fix */
 @media (max-width: 900px) {
     .portal-grid {
-        grid-template-columns: 1fr; /* Isang column lang pag CP */
+        grid-template-columns: 1fr;
         max-width: 400px;
     }
-    .main-title { font-size: 3rem; }
+    .main-title {
+        font-size: 3rem;
+    }
 }
 
-/* Para sa Music Portal (music.html) */
-.image-placeholder {
-    width: 100%;
-    aspect-ratio: 1 / 1.2; /* Ito ang magdidikta ng saktong hugis (Portrait) */
-    background: #f0f0f0;
-    overflow: hidden; /* Importante: para hindi lumabas yung image sa box */
-    margin-bottom: 25px;
-    display: block;
+@media (max-width: 800px) {
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.image-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ito ang "magic" – gagawin nitong pantay ang crop kahit mahaba o malapad ang original pic */
-    object-position: center; /* Siguradong gitna ang focus ng picture */
-    display: block;
+@media (max-width: 500px) {
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
 }
