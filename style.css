@@ -764,6 +764,21 @@ nav {
     font-weight: var(--weight-semibold);
 }
 
+.action-genre .song-meta h3 {
+    font-family: var(--font-primary) !important;
+    font-weight: var(--weight-semibold);
+}
+
+.action-genre .song-frame {
+    aspect-ratio: auto;
+}
+
+.action-genre .song-frame img {
+    height: auto;
+    object-fit: contain;
+    background: #fff;
+}
+
 .album-text {
     color: var(--highlight);
     font-weight: var(--weight-bold);
