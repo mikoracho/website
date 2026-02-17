@@ -842,12 +842,7 @@ nav {
     margin-top: 10px;
     line-height: 1.5;
     text-align: left;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    line-clamp: 6;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    min-height: 9em;
+    overflow: visible;
 }
 
 .action-genre .song-meta p:not(.album-text),
@@ -856,12 +851,7 @@ nav {
     font-size: 0.9rem;
     color: var(--text-secondary);
     line-height: 1.5;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    line-clamp: 6;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    min-height: 9em;
+    overflow: visible;
 }
 .album-text {
     color: var(--highlight);
