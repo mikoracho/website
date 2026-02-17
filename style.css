@@ -769,13 +769,15 @@ nav {
     font-weight: var(--weight-semibold);
 }
 
-.action-genre .song-frame {
+.action-genre .song-frame,
+.comedy-genre .song-frame {
     aspect-ratio: auto !important;
     height: auto !important;
     overflow: visible !important;
 }
 
-.action-genre .song-frame img {
+.action-genre .song-frame img,
+.comedy-genre .song-frame img {
     width: 100%;
     height: auto !important;
     max-width: 100%;
@@ -784,22 +786,29 @@ nav {
     border-radius: 12px;
 }
 
-.action-genre .song-item {
+.action-genre .song-item,
+.comedy-genre .song-item {
     overflow: visible;
     display: flex;
     flex-direction: column;
 }
 
-.action-genre .song-meta {
+.action-genre .song-meta,
+.comedy-genre .song-meta {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-.action-genre .view-btn {
+.action-genre .view-btn,
+.comedy-genre .view-btn {
     margin-top: auto;
 }
 
+.comedy-genre .song-meta h3 {
+    font-family: var(--font-primary) !important;
+    font-weight: var(--weight-semibold);
+}
 .album-text {
     color: var(--highlight);
     font-weight: var(--weight-bold);
