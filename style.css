@@ -802,18 +802,27 @@ nav {
     height: 100%;
 }
 
+.action-genre .song-frame,
+.comedy-genre .song-frame,
+.drama-genre .song-frame {
+    flex: 0 0 var(--poster-height);
+    padding: 8px;
+}
+
 .action-genre .song-meta,
 .comedy-genre .song-meta,
 .drama-genre .song-meta {
     display: flex;
     flex-direction: column;
     flex: 1;
+    gap: 8px;
 }
 
 .action-genre .view-btn,
 .comedy-genre .view-btn,
 .drama-genre .view-btn {
     margin-top: auto;
+    margin-bottom: 0;
 }
 
 .comedy-genre .song-meta h3 {
