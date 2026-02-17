@@ -774,16 +774,19 @@ nav {
 .action-genre .song-frame,
 .comedy-genre .song-frame,
 .drama-genre .song-frame {
-    aspect-ratio: 2 / 3 !important;
-    height: auto !important;
-    overflow: visible !important;
+    aspect-ratio: auto !important;
+    height: var(--poster-height) !important;
+    overflow: hidden !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .action-genre .song-frame img,
 .comedy-genre .song-frame img,
 .drama-genre .song-frame img {
     width: 100%;
-    height: auto !important;
+    height: 100% !important;
     max-width: 100%;
     object-fit: contain !important;
     background: #fff;
@@ -830,6 +833,20 @@ nav {
     margin-top: 10px;
     line-height: 1.5;
     text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 9em;
+}
+
+.action-genre .song-meta p:not(.album-text),
+.comedy-genre .song-meta p:not(.album-text),
+.drama-genre .song-meta p:not(.album-text) {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 6;
     line-clamp: 6;
