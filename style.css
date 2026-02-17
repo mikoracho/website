@@ -718,6 +718,7 @@ nav {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    align-items: stretch;
 }
 
 .song-item {
@@ -772,7 +773,7 @@ nav {
 .action-genre .song-frame,
 .comedy-genre .song-frame,
 .drama-genre .song-frame {
-    aspect-ratio: auto !important;
+    aspect-ratio: 2 / 3 !important;
     height: auto !important;
     overflow: visible !important;
 }
@@ -794,6 +795,7 @@ nav {
     overflow: visible;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .action-genre .song-meta,
