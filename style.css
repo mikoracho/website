@@ -771,12 +771,17 @@ nav {
 
 .action-genre .song-frame {
     aspect-ratio: auto;
+    height: auto;
+    overflow: visible;
 }
 
 .action-genre .song-frame img {
+    width: 100%;
     height: auto;
+    max-width: 100%;
     object-fit: contain;
     background: #fff;
+    border-radius: 12px;
 }
 
 .album-text {
