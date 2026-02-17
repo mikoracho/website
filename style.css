@@ -250,6 +250,32 @@ nav {
     box-shadow: 0 12px 32px rgba(233, 69, 96, 0.5);
 }
 
+/* Shared link button */
+.view-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--highlight);
+    color: #fff;
+    border-radius: 6px;
+    font-weight: var(--weight-semibold);
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+
+.view-btn:hover {
+    filter: brightness(1.05);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(233, 69, 96, 0.3);
+}
+
+/* small utilities */
+.text-center { text-align: center; }
+.mb-30 { margin-bottom: 30px; }
+
 /* Standardized Back/Home Button */
 .back-button, .back-nav {
     display: inline-block;
@@ -406,6 +432,35 @@ nav {
 
 .contact-info-box:hover a {
     color: var(--highlight);
+}
+
+/* contact page elements */
+.contact-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.contact-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--weight-semibold);
+}
+
+.contact-email-link {
+    font-size: 1.3rem;
+    color: var(--highlight);
+    text-decoration: none;
+    font-weight: var(--weight-semibold);
+    transition: all 0.3s ease;
+}
+
+.contact-note {
+    margin-top: 40px;
+    color: var(--text-secondary);
+    font-style: italic;
 }
 
 /* --- MODULE: PHOTO GRID --- */
