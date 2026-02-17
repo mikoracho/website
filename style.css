@@ -594,7 +594,7 @@ nav {
 
 /* --- MODULE: MUSIC PORTAL --- */
 .portal-wrapper {
-    background-color: #f9f7f2;
+    background-color: var(--bg-light);
     padding: 80px 20px;
     text-align: center;
     min-height: 100vh;
