@@ -786,6 +786,18 @@ nav {
 
 .action-genre .song-item {
     overflow: visible;
+    display: flex;
+    flex-direction: column;
+}
+
+.action-genre .song-meta {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.action-genre .view-btn {
+    margin-top: auto;
 }
 
 .album-text {
