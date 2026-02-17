@@ -770,18 +770,22 @@ nav {
 }
 
 .action-genre .song-frame {
-    aspect-ratio: auto;
-    height: auto;
-    overflow: visible;
+    aspect-ratio: auto !important;
+    height: auto !important;
+    overflow: visible !important;
 }
 
 .action-genre .song-frame img {
     width: 100%;
-    height: auto;
+    height: auto !important;
     max-width: 100%;
-    object-fit: contain;
+    object-fit: contain !important;
     background: #fff;
     border-radius: 12px;
+}
+
+.action-genre .song-item {
+    overflow: visible;
 }
 
 .album-text {
