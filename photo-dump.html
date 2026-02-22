@@ -51,6 +51,13 @@
         <div class="photo-card"><img src="images/miko8.jpg" alt="8"></div>
         <div class="photo-card"><img src="images/miko9.jpg" alt="9"></div>
     </div>
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-panel">
+            <button class="lightbox-close" aria-label="Close">×</button>
+            <img id="lightbox-img" class="lightbox-image" src="" alt="">
+            <div id="lightbox-cap" class="lightbox-caption"></div>
+        </div>
+    </div>
         </section>
     </main>
 
@@ -59,5 +66,27 @@
         <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.8;">ITAD - 2nd Year College Student</p>
     </footer>
 
+    <script>
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        const lbCap = document.getElementById('lightbox-cap');
+        document.querySelectorAll('.photo-grid img').forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => {
+                lb.classList.add('show');
+                lbImg.src = img.src;
+                lbCap.textContent = img.alt || '';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        function closeLb() {
+            lb.classList.remove('show');
+            lbImg.src = '';
+            document.body.style.overflow = '';
+        }
+        lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+        lb.querySelector('.lightbox-close').addEventListener('click', closeLb);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+    </script>
 </body>
 </html>
