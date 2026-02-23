@@ -52,5 +52,44 @@
             Paris charms with grand boulevards, elegant architecture, and timeless icons like the Eiffel Tower and the Louvre. Cafés line every corner, inviting slow mornings and long conversations, while museums, fashion houses, and bookstalls along the Seine celebrate art and culture. By day or night, the City of Light blends romance, history, and modern creativity effortlessly.
         </div>
     </main>
+    <footer>
+        <p>&copy; 2025 Miko Antonio S. Racho. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.8;">ITAD - 2nd Year College Student</p>
+    </footer>
+
+    <!-- Lightbox Structure -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-panel">
+            <button class="lightbox-close" aria-label="Close">×</button>
+            <img id="lightbox-img" class="lightbox-image" src="" alt="">
+            <div id="lightbox-cap" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <script>
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        const lbCap = document.getElementById('lightbox-cap');
+        
+        document.querySelectorAll('.paris-grid img').forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => {
+                lb.classList.add('show');
+                lbImg.src = img.src;
+                lbCap.textContent = img.alt || '';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeLb() {
+            lb.classList.remove('show');
+            lbImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+        lb.querySelector('.lightbox-close').addEventListener('click', closeLb);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+    </script>
 </body>
 </html>
