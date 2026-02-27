@@ -56,5 +56,35 @@
         <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.8;">ITAD - 2nd Year College Student</p>
     </footer>
 
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-panel">
+            <button class="lightbox-close" aria-label="Close">×</button>
+            <img id="lightbox-img" class="lightbox-image" src="" alt="">
+            <div id="lightbox-cap" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <script>
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        const heroImg = document.querySelector('.hero-image');
+        if (heroImg) {
+            heroImg.style.cursor = 'zoom-in';
+            heroImg.addEventListener('click', () => {
+                lb.classList.add('show');
+                lbImg.src = heroImg.src;
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        function closeLb() {
+            lb.classList.remove('show');
+            lbImg.src = '';
+            document.body.style.overflow = '';
+        }
+        lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+        lb.querySelector('.lightbox-close').addEventListener('click', closeLb);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+    </script>
+
 </body>
 </html>

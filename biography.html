@@ -44,7 +44,7 @@
                 <div class="timeline">
                     <div class="timeline-item">
                         <h3>Childhood in Quezon City</h3>
-                        <img src="images/miko1.jpg" alt="Childhood in Quezon City">
+                        <img src="images/miko1.jpg" alt="Childhood in Quezon City" class="bucket-img">
                         <p>
                             My name is Miko Antonio S. Racho, and my childhood played a huge role in shaping the person I am today.
                             I grew up in Quezon City, a place full of noise, movement, and energy.
@@ -58,7 +58,7 @@
 
                     <div class="timeline-item">
                         <h3>Teenage Years</h3>
-                        <img src="images/friends.jpg" alt="Teenage Years">
+                        <img src="images/friends.jpg" alt="Teenage Years" class="bucket-img">
                         <p>
                             My teenage years were a time of growth, discovery, and strong friendships.
                             Friends became very important to me during this stage.
@@ -70,7 +70,7 @@
 
                     <div class="timeline-item">
                         <h3>College Life</h3>
-                        <img src="images/papers.jpg" alt="College Life">
+                        <img src="images/papers.jpg" alt="College Life" class="bucket-img">
                         <p>
                             My college life marks a new and important chapter in my journey.
                             It introduced me to a more challenging academic environment.
@@ -88,6 +88,37 @@
         <p>&copy; 2025 Miko Antonio S. Racho. All rights reserved.</p>
         <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.8;">ITAD - 2nd Year College Student</p>
     </footer>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-panel">
+            <button class="lightbox-close" aria-label="Close">×</button>
+            <img id="lightbox-img" class="lightbox-image" src="" alt="">
+            <div id="lightbox-cap" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <script>
+        const lb = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        const lbCap = document.getElementById('lightbox-cap');
+        document.querySelectorAll('.bucket-img').forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', () => {
+                lb.classList.add('show');
+                lbImg.src = img.src;
+                lbCap.textContent = img.alt || '';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        function closeLb() {
+            lb.classList.remove('show');
+            lbImg.src = '';
+            document.body.style.overflow = '';
+        }
+        lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+        lb.querySelector('.lightbox-close').addEventListener('click', closeLb);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+    </script>
 
 </body>
 </html>
