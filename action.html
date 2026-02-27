@@ -81,5 +81,20 @@
         </div>
             
     </main>
+<button id="toTop" class="to-top" aria-label="Go to top">↑ Top</button>
+<script>
+    (function() {
+        const btn = document.getElementById('toTop');
+        if (!btn) return;
+        const onScroll = () => {
+            if (window.scrollY > 200) btn.classList.add('show');
+            else btn.classList.remove('show');
+        };
+        window.addEventListener('scroll', onScroll);
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+</script>
 </body>
 </html>
