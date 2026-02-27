@@ -47,5 +47,13 @@
         <p>&copy; 2025 Miko Antonio S. Racho. All rights reserved.</p>
         <p style="margin-top: 10px; font-size: 0.85rem; opacity: 0.8;">ITAD - 2nd Year College Student</p>
     </footer>
+    <script>
+        const audios = Array.from(document.querySelectorAll('audio'));
+        audios.forEach(a => {
+            a.addEventListener('play', () => {
+                audios.forEach(b => { if (b !== a) b.pause(); });
+            });
+        });
+    </script>
 </body>
 </html>
